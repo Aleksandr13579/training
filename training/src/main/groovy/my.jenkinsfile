@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    options ( timestamps() )
+
+
     parameters {
         string ( name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \", \" )' )
     }
@@ -17,6 +20,7 @@ pipeline {
             steps {
                 script {
                     arrayStr = "${STR}".split(',')
+                    arrayStr.each { println(it.toString()) }
                 }
                 echo "${arrayStr}"
             }
