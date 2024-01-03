@@ -1,11 +1,10 @@
 pipeline {
     agent any
 
-    options ( timestamps() )
-
+    options { timestamps() }
 
     parameters {
-        string ( name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \", \" )' )
+        string ( name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \" \" )' )
     }
 
     stages {
