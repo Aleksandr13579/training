@@ -1,0 +1,28 @@
+def arrayStr = []
+
+pipeline {
+    agent any
+
+    stages {
+        stage('input') {
+            input {
+                message 'Enter string'
+                ok 'ok!'
+                parameters {
+                    string( name: 'STR', defaultValue: 'one,two,three' )
+                }
+            }
+            steps {
+                script {
+                    arrayStr = "${STR}".split(',')
+                }
+                echo "${arrayStr}"
+            }
+        }
+        stage('two') {
+            steps {
+
+            }
+        }
+    }
+}
