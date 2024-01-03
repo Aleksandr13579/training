@@ -1,7 +1,11 @@
-def arrayStr = []
+def
 
 pipeline {
     agent any
+
+    parameters{
+        string { name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \", \" )'}
+    }
 
     stages {
         stage('input') {
@@ -21,7 +25,7 @@ pipeline {
         }
         stage('two') {
             steps {
-
+                echo 'hello'
             }
         }
     }
