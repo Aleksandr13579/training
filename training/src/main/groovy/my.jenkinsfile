@@ -1,10 +1,8 @@
-def
-
 pipeline {
     agent any
 
-    parameters{
-        string { name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \", \" )'}
+    parameters {
+        string ( name: 'SERVER_IP', des: 'Enter your sereves ip address (delimiter is \", \" )' )
     }
 
     stages {
