@@ -32,7 +32,7 @@ pipeline {
                             array2.put(matcher.group(1), matcher.group(2))
                         }
                     array1.each { println(it) }
-                    array2.each { println(it.getKey()) println(it.getValue())  }
+                    //array2.each { println(it.getKey()) println(it.getValue())  }
                     }
                 }
             }
