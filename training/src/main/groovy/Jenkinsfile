@@ -35,7 +35,7 @@ pipeline {
                     array2.each {
                         println(it.getKey())
                         println(it.getValue())
-
+                        }
                     }
                 }
             }
