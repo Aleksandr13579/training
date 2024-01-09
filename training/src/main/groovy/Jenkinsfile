@@ -22,6 +22,7 @@ pipeline {
         }
         stage('chekout') {
             steps {
+                /**
                 checkout([
                         $class: 'GitSCM',
                         branches: [[name: '*/main']],
@@ -30,6 +31,10 @@ pipeline {
                         submoduleCfg: [],
                         userRemoteConfigs: [[url: 'https://github.com/Aleksandr13579/training.git']]
                 ])
+                */
+                script {
+                    println("${env.workDir}")
+                }
             }
         }
 
