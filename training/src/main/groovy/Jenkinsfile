@@ -20,6 +20,7 @@ pipeline {
 
         stage('load file') {
             steps {
+                sh "cat ${env.WORKSPACE}/training/test.txt"
                 script {
                     def myFile = readFile "${env.WORKSPACE}/training/test.txt"
                     def lines = []
