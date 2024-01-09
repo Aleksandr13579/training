@@ -22,13 +22,10 @@ pipeline {
         }
         stage('chekout') {
             steps {
-                checkout scm: [[
-                        $class: 'GitSCM'
-                        branches: [[name: '*/main']]
-                        userRemoteComfigs: [[url: 'https://github.com/Aleksandr13579/training.git']]
-                ]]
+                git branch: '*/main'
+                    url: 'https://github.com/Aleksandr13579/training.git'\
+                sh " ls -alrt ${env.WORKDIR}"
             }
-            sh " ls -alrt ${env.WORKDIR}"
         }
 
         stage('two') {
