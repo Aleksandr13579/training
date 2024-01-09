@@ -11,20 +11,11 @@ pipeline {
     }
 
     stages {
-        stage('input') {
-            steps {
-                script {
-                    arrayStr = "${STR}".split(',')
-                    arrayStr.each { println(it.toString()) }
-                }
-                echo "${arrayStr}"
-            }
-        }
         stage('chekout') {
             steps {
                 git url: 'https://github.com/Aleksandr13579/training.git', branch: '*/main'
                 script {
-                    println("${env.workDir}")
+                    println("$env.workDir")
                 }
             }
         }
