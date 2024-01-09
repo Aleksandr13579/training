@@ -23,7 +23,6 @@ pipeline {
                 sh "cat ${env.WORKSPACE}/training/test.txt"
                 script {
                     def myFile = readFile "${env.WORKSPACE}/training/test.txt"
-                    def lines = []
                     def lines = myFile.readLines()
                     def pattern = ~/^([a-zA-Z]+) ([0-9]+)/
                     lines.each {
