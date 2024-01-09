@@ -30,7 +30,6 @@ pipeline {
                         submoduleCfg: [],
                         userRemoteConfigs: [[url: 'https://github.com/Aleksandr13579/training.git']]
                 ])
-                sh " ls -alrt ${env.workDir}"
             }
         }
 
