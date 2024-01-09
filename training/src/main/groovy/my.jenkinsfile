@@ -22,7 +22,7 @@ pipeline {
         }
         stage('chekout') {
             steps {
-                git branch: '*/main'
+                git branch: '*/main',
                     url: 'https://github.com/Aleksandr13579/training.git'
                 sh " ls -alrt ${env.WORKDIR}"
             }
