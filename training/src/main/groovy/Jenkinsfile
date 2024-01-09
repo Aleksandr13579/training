@@ -15,7 +15,7 @@ pipeline {
             steps {
                 git url: 'https://github.com/Aleksandr13579/training.git', branch: 'main'
                 script {
-                    println("$env.workDir")
+                    println("$env.WORKDIR")
                 }
             }
         }
