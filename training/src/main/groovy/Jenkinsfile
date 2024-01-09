@@ -10,7 +10,7 @@ pipeline {
         string ( name: 'SERVER_IP', description: 'Enter your sereves ip address (delimiter is \" \" )' )
     }
 
-    stages {
+    stages('chekout my repo') {
         stage('chekout') {
             steps {
                 git url: 'https://github.com/Aleksandr13579/training.git', branch: 'main'
@@ -18,9 +18,19 @@ pipeline {
             }
         }
 
-        stage('two') {
+        stage('load file') {
             steps {
-                echo 'hello'
+                script {
+                    def myFile = readFile "${env.WORKSPACE}/training/test.txt"
+                    def pattern = ~/^([a-zA-Z]+) ([0-9]+)/
+                    myFile.each {
+                        def matcher = pattern.matcher(it)
+                        if (matcher.find()) {
+                            println(matcher.group(1))
+                            println(matcher.group(2))
+                        }
+                    }
+                }
             }
         }
     }
