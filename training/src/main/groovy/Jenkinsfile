@@ -40,5 +40,15 @@ pipeline {
                 }
             }
         }
+        stage ("test map ") {
+            steps {
+                script {
+                    array2.each {
+                        println(it.getKey())
+                        println(it.getValue())
+                    }
+                }
+            }
+        }
     }
 }
