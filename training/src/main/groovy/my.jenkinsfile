@@ -22,8 +22,14 @@ pipeline {
         }
         stage('chekout') {
             steps {
-                git branch: '*/main',
-                    url: 'https://github.com/Aleksandr13579/training.git'
+                checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/main']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [[$class: 'CleanCheckout']],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[url: 'https://github.com/Aleksandr13579/training.git']]
+                ])
                 sh " ls -alrt ${env.WORKDIR}"
             }
         }
