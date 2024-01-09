@@ -1,3 +1,6 @@
+def array1 = []
+def array2 = [:]
+
 pipeline {
     agent any
 
@@ -9,13 +12,6 @@ pipeline {
 
     stages {
         stage('input') {
-            input {
-                message 'Enter string'
-                ok 'ok!'
-                parameters {
-                    string( name: 'STR', defaultValue: 'one,two,three' )
-                }
-            }
             steps {
                 script {
                     arrayStr = "${STR}".split(',')
@@ -24,6 +20,17 @@ pipeline {
                 echo "${arrayStr}"
             }
         }
+        stage('chekout') {
+            steps {
+                checkout scm: [[
+                        $class: 'GitSCM'
+                        branches: [[name: '*/main']]
+                        userRemoteComfigs: [[url: 'https://github.com/Aleksandr13579/training.git']]
+                ]]
+            }
+            sh " ls -alrt ${env.WORKDIR}"
+        }
+
         stage('two') {
             steps {
                 echo 'hello'
